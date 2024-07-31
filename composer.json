@@ -1,0 +1,19 @@
+{
+    "name": "lucascarvalho/miniframework",
+    "version": "1.0.0",
+    "require": {
+        "php": ">= 7.0"
+    },
+    "authors": [
+        {
+            "name": "Lucas Carvalho",
+            "email": "lucasilva1990@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "MF\\": "vendor/MF/"
+        }
+    }
+}
