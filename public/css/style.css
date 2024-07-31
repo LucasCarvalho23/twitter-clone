@@ -49,6 +49,10 @@ h2 {
 	background-color: var(--colorPrimary);
 }
 
+.container-login {
+    background-color: lightgray;
+}
+
 .title {
 	color: var(--colorPrimary);
 	font-size: 27px;

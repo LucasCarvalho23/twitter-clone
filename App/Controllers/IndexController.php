@@ -10,6 +10,10 @@
             $this->render('index');
         }
 
+        public function signin() {
+            $this->render('signin');
+        }
+
     }
 
 ?>
