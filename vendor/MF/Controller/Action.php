@@ -10,7 +10,7 @@
             $this->view = new \stdClass();
         }
 
-        protected function render($view, $tema) {
+        protected function render($view, $tema = 'layout') {
             $this->view->page = $view;
             require_once "../App/Views/".$tema.".phtml";
         }
