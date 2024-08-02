@@ -26,7 +26,7 @@
             $user = Container::getModel('user');
             $user->__set('nome', $_POST['nome']);
             $user->__set('email', $_POST['email']);
-            $user->__set('senha', $_POST['senha']);
+            $user->__set('senha', md5($_POST['senha']));
 
             if ($user->validaCadastro()) {
                 $contador = count($user->getUsuarioPorEmail());

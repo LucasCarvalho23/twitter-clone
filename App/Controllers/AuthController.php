@@ -9,7 +9,7 @@
         public function autenticar() {
             $user = Container::getModel('user');
             $user->__set('email', $_POST['email']);
-            $user->__set('senha', $_POST['senha']);
+            $user->__set('senha', md5($_POST['senha']));
             $return = $user->autenticar();
    
             if ($user->__get('id') != '' && $user->__get('nome') != '') {
