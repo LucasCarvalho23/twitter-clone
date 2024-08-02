@@ -11,6 +11,13 @@
         }
 
         public function signin() {
+            $this->view->user = array (
+                'nome' => '',
+                'email' => '',
+                'senha' => ''
+            );
+            $this->view->erroCadastro = false;
+            $this->view->erroDuplicidade = false;
             $this->render('signin');
         }
 
@@ -24,12 +31,26 @@
                 $contador = count($user->getUsuarioPorEmail());
                 if ($contador == 0) {
                     $user->salvar();
-                    echo "Resistro inserido com sucesso";
+                    $this->render('cadastro');
                 } else {
-                    echo "Registro já inserido";
+                    $this->view->user = array (
+                        'nome' => $_POST['nome'],
+                        'email' => $_POST['email'],
+                        'senha' => $_POST['senha']
+                    );
+                    $this->view->erroCadastro = true;
+                    $this->view->erroDuplicidade = true;
+                    $this->render('signin');
                 }
             } else {
-                echo "Error";
+                $this->view->user = array (
+                    'nome' => $_POST['nome'],
+                    'email' => $_POST['email'],
+                    'senha' => $_POST['senha']
+                );
+                $this->view->erroCadastro = true;
+                $this->view->erroDuplicidade = false;
+                $this->render('signin');
             }
 
         }

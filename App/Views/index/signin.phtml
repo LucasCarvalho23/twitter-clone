@@ -18,15 +18,15 @@
             
             <form action="/registrar" method="post">
               <div class="form-group">
-                <input type="text" class="form-control" name="nome" placeholder="Name" required>
+                <input type="text" class="form-control" name="nome" placeholder="Name" value="<?= $this->view->user['nome'] ?>" required>
               </div>
               
               <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="E-mail" required>
+                <input type="text" class="form-control" name="email" placeholder="E-mail" value="<?= $this->view->user['email'] ?>" required>
               </div>
 
               <div class="form-group">
-                <input type="password" class="form-control" name="senha" placeholder="Password" required>
+                <input type="password" class="form-control" name="senha" placeholder="Password" value="<?= $this->view->user['senha'] ?>" required>
               </div>
               
               <div class="mt-4 mb-4">
@@ -35,6 +35,15 @@
                 </small>
               </div>
               <button type="submit" class="btn btn-black btn-block">Sign In</button>
+
+              <?php if ($this->view->erroCadastro) { 
+                if ($this->view->erroDuplicidade) {?>
+                  <small class="form-text text-danger">Usuário já cadastrado.</small>
+              <?php } else { ?>
+                  <small class="form-text text-danger">Respeite os parâmetros de cadastro.</small>
+                <?php } 
+              }?>
+
             </form>
 
           </div>
