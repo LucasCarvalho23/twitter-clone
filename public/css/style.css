@@ -189,7 +189,8 @@ h2 {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     border: 1px solid #e6ecf0;
-    background-color: #E8F5FD;
+    /*background-color: #E8F5FD;*/
+    background-color: #838c94;
     padding:25px;
 }
 
