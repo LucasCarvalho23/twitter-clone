@@ -37,6 +37,11 @@
                 'controller' => 'AppController',
                 'action' => 'tweet'
             );
+            $routes['quem_seguir'] = array(
+                'route' => '/quem_seguir',
+                'controller' => 'AppController',
+                'action' => 'quemSeguir'
+            );
             $routes['logout'] = array(
                 'route' => '/logout',
                 'controller' => 'AuthController',

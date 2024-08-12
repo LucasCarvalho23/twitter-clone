@@ -6,6 +6,13 @@
 
     class AppController extends Action {
 
+        public function validaAutenticacao() {
+            session_start();
+            if (!isset($_SESSION['id']) || $_SESSION['id'] == '' || $_SESSION['nome'] == '' || !isset($_SESSION['nome'])) {
+                header('Location: /?login=erro');
+            } 
+        }
+
         public function timeline() {
             $this->validaAutenticacao();
             $tweet = Container::getModel('Tweet');
@@ -24,12 +31,9 @@
             header('Location: /timeline');
         }
 
-        
-        public function validaAutenticacao() {
-            session_start();
-            if (!isset($_SESSION['id']) || $_SESSION['id'] == '' || $_SESSION['nome'] == '' || !isset($_SESSION['nome'])) {
-                header('Location: /?login=erro');
-            } 
+        public function quemSeguir() {
+            $this->validaAutenticacao();
+            echo "Vasco";
         }
 
     }
