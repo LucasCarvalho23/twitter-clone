@@ -32,6 +32,11 @@
                 'controller' => 'AppController',
                 'action' => 'timeline'
             );
+            $routes['tweet'] = array(
+                'route' => '/tweet',
+                'controller' => 'AppController',
+                'action' => 'tweet'
+            );
             $routes['logout'] = array(
                 'route' => '/logout',
                 'controller' => 'AuthController',
