@@ -48,7 +48,7 @@
             $this->validaAutenticacao();
             $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
             $id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
-            $usuario = Container::getModel('User');
+            $usuario = Container::getModel('user');
             $usuario->__set('id', $_SESSION['id']);
             if($acao == 'seguir') {
                 $usuario->seguirUsuario($id_usuario_seguindo);
@@ -56,6 +56,19 @@
                 $usuario->DeixarSeguirUsuario($id_usuario_seguindo);
             }
             header('Location: /quem_seguir');
+        }
+
+        public function remover() {
+            $this->validaAutenticacao();
+            $id_tweet = isset($_POST['id_tweet']) ? $_POST['id_tweet'] : '';
+            $tweet = Container::getModel('Tweet');
+            $tweet->__set('id_usuario', $_SESSION['id']);
+            if ($id_tweet != '') {
+                $tweet->apagarTweet($id_tweet);
+            } else {
+                echo ("Error. Sem ID vinculado");
+            }
+            header('Location: /timeline');
         }
 
     }

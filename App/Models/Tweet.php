@@ -35,6 +35,14 @@
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
 
+        public function apagarTweet($id_tweet) {
+            $query = "DELETE FROM tweets WHERE id = :id_tweet";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":id_tweet", $id_tweet);
+            $stmt->execute();
+            return true;
+        }
+
     }
 
 ?>

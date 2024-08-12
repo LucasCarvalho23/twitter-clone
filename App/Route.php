@@ -47,6 +47,11 @@
                 'controller' => 'AppController',
                 'action' => 'acao'
             );
+            $routes['remover'] = array(
+                'route' => '/remover',
+                'controller' => 'AppController',
+                'action' => 'remover'
+            );
             $routes['logout'] = array(
                 'route' => '/logout',
                 'controller' => 'AuthController',
