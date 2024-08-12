@@ -33,7 +33,14 @@
 
         public function quemSeguir() {
             $this->validaAutenticacao();
-            echo "Vasco";
+            $pesquisarPor = isset($_POST['pesquisarPor']) ? $_POST['pesquisarPor'] : '' ;
+            if ($pesquisarPor != '') {
+                $usuario = Container::getModel('user');
+                $usuario->__set('nome', $pesquisarPor);
+                $usuarios = $usuario->getAll();
+            }
+            $this->view->usuarios = $usuarios;
+            $this->render('quemSeguir');
         }
 
     }
