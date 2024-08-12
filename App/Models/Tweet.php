@@ -28,8 +28,13 @@
         }
 
         public function getAll() {
-            //$query = "SELECT tweet FROM tweets where id_usuario = :id_usuario";
+            $query = "SELECT t.id, t.id_usuario, t.tweet, DATE_FORMAT(t.data, '%d/%m/%Y %H:%i') as data, u.nome FROM tweets as t left join usuarios as u on(t.id_usuario = u.id) where t.id_usuario = :id_usuario order by data desc";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
+        
     }
 
 ?>
