@@ -5,7 +5,7 @@
 	  		Home
 	  	</a>
 
-	  	<a class="menuItem" href="/sair">
+	  	<a href="/logout" class="menuItem" href="/sair">
 	  		Exit
 	  	</a>
 			<img src="/img/twitter_logo.png" class="menuIco" />
@@ -76,11 +76,13 @@
 						<p><?= $tweet['tweet'] ?></p>
 
 						<br />
-						<form>
-							<div class="col d-flex justify-content-end">
-								<button type="submit" class="btn btn-secondary"><small>Remover</small></button>
-							</div>
-						</form>
+						<?php if ($_SESSION['id'] == $tweet['id_usuario']) { ?> 
+							<form>
+								<div class="col d-flex justify-content-end">
+									<button type="submit" class="btn btn-secondary"><small>Remover</small></button>
+								</div>
+							</form>
+						<?php } ?>
 					</div>
 				</div>
 			<?php } ?>

@@ -50,12 +50,12 @@
             $id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : '';
             $usuario = Container::getModel('User');
             $usuario->__set('id', $_SESSION['id']);
-
             if($acao == 'seguir') {
                 $usuario->seguirUsuario($id_usuario_seguindo);
             } else if ($acao == 'deixar_de_seguir') {
                 $usuario->DeixarSeguirUsuario($id_usuario_seguindo);
             }
+            header('Location: /quem_seguir');
         }
 
     }
