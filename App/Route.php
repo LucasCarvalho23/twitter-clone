@@ -42,6 +42,11 @@
                 'controller' => 'AppController',
                 'action' => 'quemSeguir'
             );
+            $routes['acao'] = array(
+                'route' => '/acao',
+                'controller' => 'AppController',
+                'action' => 'acao'
+            );
             $routes['logout'] = array(
                 'route' => '/logout',
                 'controller' => 'AuthController',

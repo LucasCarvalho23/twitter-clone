@@ -81,6 +81,14 @@
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
 
+        public function seguirUsuario($id_usuario_seguindo) {
+            echo $id_usuario_seguindo;
+        }
+
+        public function DeixarSeguirUsuario($id_usuario_seguindo) {
+            echo $id_usuario_seguindo;
+        }
+
     }
 
 ?>
