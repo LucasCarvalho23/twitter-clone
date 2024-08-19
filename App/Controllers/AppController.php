@@ -17,7 +17,9 @@
             $this->validaAutenticacao();
             $tweet = Container::getModel('Tweet');
             $tweet->__set("id_usuario", $_SESSION['id']);
-            $tweets = $tweet->getAll();
+            $total_registros_pagina = 10;
+            $deslocamento = 0;
+            $tweets = $tweet->getPorPagina($total_registros_pagina, $deslocamento);
             $this->view->tweets = $tweets;
             $usuario = Container::getModel('User');
             $usuario->__set("id", $_SESSION['id']);
