@@ -116,7 +116,7 @@
         }
 
         public function getTotalSeguindo() {
-            $query = "SELECT count(*) as total_seguindo FROM usuario_seguidores WHERE id_usuario = :id_usuario";
+            $query = "SELECT count(*) as total_seguindo FROM usuarios_seguidores WHERE id_usuario = :id_usuario";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id_usuario', $this->__get('id'));
             $stmt->execute();
@@ -125,7 +125,7 @@
         }
 
         public function getTotalSeguidores() {
-            $query = "SELECT count(*) as total_seguidores FROM usuario_seguidores WHERE id_seguindo = :id_usuario";
+            $query = "SELECT count(*) as total_seguidores FROM usuarios_seguidores WHERE id_usuario_seguindo = :id_usuario";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id_usuario', $this->__get('id'));
             $stmt->execute();
