@@ -16,9 +16,14 @@
         public function timeline() {
             $this->validaAutenticacao();
             $tweet = Container::getModel('Tweet');
+            $usuario = Container::getModel('User');
             $tweet->__set("id_usuario", $_SESSION['id']);
             $tweets = $tweet->getAll();
             $this->view->tweets = $tweets;
+            $this->view->info_usuario = $usuario->getInfoUsuario();
+            $this->view->total_tweets = $usuario->getTotalTweets();
+            $this->view->total_seguindo = $usuario->getTotalSeguindo();
+            $this->view->total_seguidores = $usuario->getTotalSeguidores();
             $this->render('timeline');
         }
 

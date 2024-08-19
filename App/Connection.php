@@ -11,7 +11,7 @@
                 $connect = new \PDO(
                     "mysql:host=localhost;dbname=twitter_clone;charset=utf8",
                     "root",
-                    ""
+                    "Skrillex@23"
                 );
 
                 return $connect;
