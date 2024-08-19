@@ -40,10 +40,14 @@
         public function quemSeguir() {
             $this->validaAutenticacao();
             $pesquisarPor = isset($_POST['pesquisarPor']) ? $_POST['pesquisarPor'] : '' ;
+            $usuario = Container::getModel('user');
+            $usuario->__set('id', $_SESSION['id']);
+            $this->view->info_usuario = $usuario->getInfoUsuario();
+            $this->view->total_tweets = $usuario->getTotalTweets();
+            $this->view->total_seguindo = $usuario->getTotalSeguindo();
+            $this->view->total_seguidores = $usuario->getTotalSeguidores();
             if ($pesquisarPor != '') {
-                $usuario = Container::getModel('user');
                 $usuario->__set('nome', $pesquisarPor);
-                $usuario->__set('id', $_SESSION['id']);
                 $usuarios = $usuario->getAll();
             }
             $this->view->usuarios = $usuarios;
