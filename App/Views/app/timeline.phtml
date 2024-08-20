@@ -92,15 +92,16 @@
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
 						<li class="page-item">
-							<a class="page-link" href="#" aria-label="Previous">
+							<a class="page-link" href="?pagina=1" aria-label="Previous">
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<?php for ($count= 1; $count <= $this->view->total_de_paginas; $count++) { ?>
+							<li class="page-item <?= $this->view->pagina_ativa == $count ? 'active' : '' ?>">
+								<a class="page-link" href="?pagina=<?= $count ?>"><?= $count ?></a></li>
+						<?php } ?>
 						<li class="page-item">
-							<a class="page-link" href="#" aria-label="Next">
+							<a class="page-link" href="?pagina=<?= $this->view->total_de_paginas ?>" aria-label="Next">
 								<span aria-hidden="true">&raquo;</span>
 							</a>
 						</li>
